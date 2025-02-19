@@ -11,25 +11,45 @@ public class OrderInfo implements Serializable {
     @Id
     @Column(name = "orderId")
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int orderId;
+    int orderId;
 
-    @Column(name = "tree1")
+    @Column(name = "treeName")
     @NotNull
-    private String tree1;
+    String treeName;
 
-    @Column(name = "tree2")
-    @NotNull
-    private String tree2;
+
+    @Column(name = "treeInv")
+    int treeInv;
+
 
 
     // mapping relationship between customer and order info
-    @OneToOne(mappedBy = "orderInfo")
-    private Customer customer;
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "customerId", referencedColumnName = "customerId")
+    Customer customer;
 
 
 
     // getters and setters
-    public long getOrderId() {
+
+
+    public String getTreeName() {
+        return treeName;
+    }
+
+    public void setTreeName(String treeName) {
+        this.treeName = treeName;
+    }
+
+    public int getTreeInv() {
+        return treeInv;
+    }
+
+    public void setTreeInv(int treeInv) {
+        this.treeInv = treeInv;
+    }
+
+    public int getOrderId() {
         return orderId;
     }
 
@@ -37,46 +57,23 @@ public class OrderInfo implements Serializable {
         this.orderId = orderId;
     }
 
-    public String getTree1() {
-        return tree1;
-    }
 
-    public void setTree1(String tree1) {
-        this.tree1 = tree1;
-    }
 
-    public String getTree2() {
-        return tree2;
-    }
-
-    public void setTree2(String tree2) {
-        this.tree2 = tree2;
-    }
-
-    public Customer getCustomer() {
-        return customer;
-    }
-
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
-    }
 
 
     // constructors
 
-
-    public OrderInfo(String tree1, String tree2) {
-        this.tree1 = tree1;
-        this.tree2 = tree2;
-    }
-
-    public OrderInfo(int orderId, String tree1, String tree2, Customer customer) {
+    public OrderInfo(int treeInv, String treeName, int orderId) {
+        this.treeInv = treeInv;
+        this.treeName = treeName;
         this.orderId = orderId;
-        this.tree1 = tree1;
-        this.tree2 = tree2;
     }
 
-    public OrderInfo() {
-
+    public OrderInfo( int orderId, int treeInv, String treeName) {
+        this.treeInv = treeInv;
+        this.treeName = treeName;
+        this.orderId = orderId;
     }
+
+    public OrderInfo() {}
 }

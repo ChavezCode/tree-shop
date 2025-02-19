@@ -6,7 +6,7 @@ import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
 
-public interface CustomerRepository extends CrudRepository<Customer, Long> {
+public interface CustomerRepository extends CrudRepository <Customer, Integer> {
     @Query("SELECT p FROM Customer p WHERE p.customerName LIKE %?1%")
-    public List<Customer> search(String keyword);
+    public List<Customer> findCustomerBy(String keyword);
 }
