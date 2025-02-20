@@ -19,27 +19,27 @@ public class Customer implements Serializable {
     @Id
     @Column(name = "customerId")
     @GeneratedValue(strategy = GenerationType.AUTO)
-   int customerID;
+    private int customerID;
 
     @Column(name = "customerName")
     @NotNull
-    String customerName;
+    private String customerName;
 
     @Column(name = "customerAddress")
     @NotNull
-    String address;
+    private String address;
 
     @Column(name = "phoneNumber")
     @NotNull
-    String phoneNumber;
+    private String phoneNumber;
 
     @Column(name = "email")
     @NotNull
-    String email;
+    private String email;
 
-    // mapping relationship between customer and order info
-    @OneToOne(mappedBy = "customer", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    OrderInfo orderInfo;
+    // mapping relationship between customer and order info (order owns relationship)
+    @OneToOne(mappedBy = "customer", fetch = FetchType.LAZY)
+    private OrderInfo orderInfo;
 
 
 
@@ -54,13 +54,7 @@ public class Customer implements Serializable {
         this.customerID = customerID;
     }
 
-    public OrderInfo getOrderInfo() {
-        return orderInfo;
-    }
 
-    public void setOrderInfo(OrderInfo orderInfo) {
-        this.orderInfo = orderInfo;
-    }
 
     public @NotNull String getEmail() {
         return email;

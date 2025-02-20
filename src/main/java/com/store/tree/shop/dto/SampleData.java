@@ -35,15 +35,13 @@ public class SampleData implements CommandLineRunner {
             customer.setEmail("jorge@gmail.com");
             customer.setPhoneNumber("+49 55 55 55");
             customerRepository.save(customer);
-        }
 
-            if (orderInfoRepository.count() == 0) {
-                //create a tree
-                OrderInfo orderInfo = new OrderInfo();
-                orderInfo.setTreeInv(1);
-                orderInfo.setTreeName("douglas");
+            //create an order
+            OrderInfo orderInfo = new OrderInfo();
+            orderInfo.setTreeInv(1);
+            orderInfo.setTreeName("douglas");
+            orderInfo.setCustomer(customer);
 
-                // Link the OrderInfo with the Customer
 
                 orderInfoRepository.save(orderInfo);
             }

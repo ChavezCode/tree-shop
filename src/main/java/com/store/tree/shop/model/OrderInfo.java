@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
+
 @Entity
 @Table(name = "orderInfo")
 public class OrderInfo implements Serializable {
@@ -11,27 +12,35 @@ public class OrderInfo implements Serializable {
     @Id
     @Column(name = "orderId")
     @GeneratedValue(strategy = GenerationType.AUTO)
-    int orderId;
+    private int orderId;
 
     @Column(name = "treeName")
     @NotNull
-    String treeName;
+    private String treeName;
 
 
     @Column(name = "treeInv")
-    int treeInv;
+    private int treeInv;
 
 
 
-    // mapping relationship between customer and order info
+    // mapping relationship between customer and order info(orderinfo owner of relationship)
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "customerId", referencedColumnName = "customerId")
-    Customer customer;
+    @JoinColumn(name = "customerId")
+    private Customer customer;
 
 
 
     // getters and setters
 
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
 
     public String getTreeName() {
         return treeName;
