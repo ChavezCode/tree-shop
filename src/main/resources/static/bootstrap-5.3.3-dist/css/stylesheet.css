@@ -10,4 +10,7 @@ nav {
     align-items: center;
     gap: 8px;
 }
+a:hover {
+    color: #0dcaf0;
+}
 
