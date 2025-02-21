@@ -8,7 +8,7 @@ import org.springframework.data.repository.CrudRepository;
 import java.util.List;
 
 
-public interface OrderInfoRepository extends CrudRepository <OrderInfo, Long> {
+public interface OrderInfoRepository extends CrudRepository <OrderInfo, Integer> {
     @Query("SELECT p FROM OrderInfo p WHERE p.treeName LIKE %?1%")
         public List<OrderInfo> search(String keyword);
 

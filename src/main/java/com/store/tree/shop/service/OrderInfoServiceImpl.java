@@ -30,7 +30,9 @@ public class OrderInfoServiceImpl implements OrderInfoService {
     @Override
     public OrderInfo findById(int theId) {
         Optional<OrderInfo> orderInfoId = orderInfoRepository.findById(theId);
+
         OrderInfo theOrderInfo = null;
+
         if (orderInfoId.isPresent()) {
             theOrderInfo = orderInfoId.get();
         } else {
@@ -41,12 +43,13 @@ public class OrderInfoServiceImpl implements OrderInfoService {
 
     @Override
     public void save(OrderInfo orderInfo) {
+        orderInfoRepository.save(orderInfo);
 
     }
 
     @Override
     public void deleteById(int id) {
-
+        orderInfoRepository.deleteById(id);
     }
 
 }
