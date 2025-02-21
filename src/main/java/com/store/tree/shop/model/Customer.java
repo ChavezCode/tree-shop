@@ -46,6 +46,15 @@ public class Customer implements Serializable {
 
 //    Getters and setters
 
+
+    public OrderInfo getOrderInfo() {
+        return orderInfo;
+    }
+
+    public void setOrderInfo(OrderInfo orderInfo) {
+        this.orderInfo = orderInfo;
+    }
+
     public int getCustomerID() {
         return customerID;
     }

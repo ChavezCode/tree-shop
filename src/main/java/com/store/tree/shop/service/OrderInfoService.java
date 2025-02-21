@@ -6,8 +6,8 @@ import java.util.List;
 
 public interface OrderInfoService {
     public List<OrderInfo> findAll();
+    public List<OrderInfo> listAll(String keyword);
     public OrderInfo findById(int id);
     public void save(OrderInfo orderInfo);
     public void deleteById(int id);
-    public List<OrderInfo> findAll(String keyword);
 }

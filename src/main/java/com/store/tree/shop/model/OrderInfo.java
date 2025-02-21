@@ -5,6 +5,7 @@ import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 
+
 @Entity
 @Table(name = "orderInfo")
 public class OrderInfo implements Serializable {
