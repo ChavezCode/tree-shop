@@ -1,16 +1,16 @@
 package com.store.tree.shop.controller;
 
 
+import com.store.tree.shop.dto.RegistrationWrapper;
 import com.store.tree.shop.model.Customer;
 import com.store.tree.shop.model.OrderInfo;
+import com.store.tree.shop.service.CustomerServiceImpl;
 import com.store.tree.shop.service.OrderInfoServiceImpl;
 import org.apache.catalina.core.ApplicationContext;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -25,26 +25,37 @@ public class RegistrationController {
     @Autowired
     private OrderInfoServiceImpl orderInfoServiceImpl;
     @Autowired
-    private OrderInfo orderInfo;
-    private Customer customer;
+    private CustomerServiceImpl customerServiceImpl;
+
+
+
 
     //return the webpage
-    @GetMapping("/registration")
-    public String registration() {
+    @GetMapping("/showRegistrationForm")
+    public String showRegistration(Model model) {
+        RegistrationWrapper registrationInfo = new RegistrationWrapper();
+        registrationInfo.setCustomer(new Customer()); // Initialize Customer object
+        registrationInfo.setOrderInfo(new OrderInfo()); // Initialize OrderInfo object
+        model.addAttribute("registrationForm", registrationInfo); // Add the form to the model
         return "registration";
     }
-
-    //add the submission to customer
-    @PostMapping("/registration")
-    public String submitRegistration(@Valid @ModelAttribute("submit") OrderInfo orderInfo, BindingResult bindingResult, Model model) {
-        model.addAttribute("orderInfo", orderInfo);
-        //add validation for address later on here
+//
+//    //add the submission to table
+    @PostMapping("/showRegistrationForm")
+    public String submitRegistration(@Valid @ModelAttribute("registrationForm")RegistrationWrapper registration, BindingResult bindingResult, Model model) {
+        model.addAttribute("submitOrder", registration.getOrderInfo());
+        model.addAttribute("submitCustomer", registration.getCustomer());
+        //add address verification later on here
 
         if (bindingResult.hasErrors()) {
             return "registration";
         }
         else {
-            orderInfoServiceImpl.save(orderInfo);
+            Customer customer = registration.getCustomer();
+            OrderInfo orderInfo = registration.getOrderInfo();
+            orderInfo.setCustomer(customer);
+            customerServiceImpl.save(registration.getCustomer());
+            orderInfoServiceImpl.save(registration.getOrderInfo());
             return "submission";
 
         }

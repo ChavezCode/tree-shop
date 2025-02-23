@@ -18,8 +18,41 @@
 </div>
 
 
-<!--create form to register for a tree-->
+<!--&lt;!&ndash;create form to register for a tree&ndash;&gt;-->
+<form action="#" th:action="@{/showRegistrationForm}" th:object="${registrationForm}" method="post">
+    <p><input type="hidden" th:field="*{customer.customerID}"/></p>
 
+    <label>Enter your Name</label>
+    <p><input type="text" th:field="*{customer.customerName}" placeholder="Name"></p>
+    <p th:if="${#fields.hasErrors('customer.customerName')}" th:errors="*{customer.customerName}">Name Error</p>
+
+    <label>Property Address</label>
+    <p><input type="text" th:field="*{customer.address}" placeholder="123 N Oregon Ave"></p>
+    <p th:if="${#fields.hasErrors('customer.address')}" th:errors="*{customer.address}">Address Error</p>
+
+    <label>Phone Number</label>
+    <p><input type="text" th:field="*{customer.phoneNumber}" placeholder="5031234567"></p>
+    <p th:if="${#fields.hasErrors('customer.phoneNumber')}" th:errors="*{customer.phoneNumber}">Phone Number Error</p>
+
+
+    <label>Enter your email</label>
+    <p><input type="email" th:field="*{customer.email}" placeholder="username@domain.com"></p>
+    <p th:if="${#fields.hasErrors('customer.email')}" th:errors="*{customer.email}">Email Error</p>
+
+
+    <p><input type="hidden" th:field="*{orderInfo.orderId}"/></p>
+    <label>What tree would you like?</label>
+    <p><input type="text" th:field="*{orderInfo.treeName}" placeholder="username@domain.com"></p>
+    <p th:if="${#fields.hasErrors('orderInfo.treeName')}" th:errors="*{orderInfo.treeName}">Tree Name Error</p>
+
+    <label>How Many Trees would you like of this species?</label>
+    <p><input type="number" th:field="*{orderInfo.treeInv}" placeholder="1 or 2"></p>
+    <p th:if="${#fields.hasErrors('orderInfo.treeInv')}" th:errors="*{orderInfo.treeInv}">Inventory Error</p>
+
+
+    <button type="submit"> Submit</button>
+
+</form>
 
 
 </body>
