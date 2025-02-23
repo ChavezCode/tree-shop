@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -23,16 +24,18 @@ public class SubmissionController {
     List<OrderInfo> orderInfoList;
 
 
-    //get customer and order info to display in the submission page
-    @PostMapping("/submission")
-    public String submission(@Valid @ModelAttribute("registrationInfo")RegistrationWrapper registrationInfo, BindingResult bindingResult, Model model) {
-        model.addAttribute("orderInfo", registrationInfo.getOrderInfo());
-        model.addAttribute("customer", registrationInfo.getCustomer());
-        if (orderInfo != null) {
-            customer = registrationInfo.getCustomer();
+    //get customer and order info to display on the submission page
+    @GetMapping("/submission")
+    public String submission(Model model) {
+        model.addAttribute("customer", customer);
+        model.addAttribute("orderInfo", orderInfo);
+
+        orderInfoList = new ArrayList<>();
 
 
-        }
-        return "submission";
+
+
+
+
     }
 }
