@@ -42,7 +42,7 @@
 
     <p><input type="hidden" th:field="*{orderInfo.orderId}"/></p>
     <label>What tree would you like?</label>
-    <p><input type="text" th:field="*{orderInfo.treeName}" placeholder="username@domain.com"></p>
+    <p><input type="text" th:field="*{orderInfo.treeName}" placeholder="enter tree name"></p>
     <p th:if="${#fields.hasErrors('orderInfo.treeName')}" th:errors="*{orderInfo.treeName}">Tree Name Error</p>
 
     <label>How Many Trees would you like of this species?</label>
