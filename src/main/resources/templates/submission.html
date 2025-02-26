@@ -18,15 +18,48 @@
     </nav>
 </div>
 <br>
-<div th:text="'Thank you for submitting your order!' + ${submitCustomer.getCustomerName()}">  Please Confirm your order details</div>
-<div> Order details:</div>
-<table>
+<div th:text="'Thank you for submitting your order!' + ${submitCustomer.getCustomerName()}">  Please Confirm your order details below.</div>
+<div> Tree Shop Registration Confirmation</div>
 
-</table>
+<!--display name-->
+<!--email-->
+<!--phone-->
+
+<p th:text="${submitCustomer.getCustomerName()}"></p>
+<p th:text="${submitCustomer.getEmail()}"></p>
+<p th:text="${submitCustomer.getPhoneNumber()}"></p>
+
+<strong>Planting Address:</strong> <span th:text="${submitCustomer.getAddress()}"></span>
+
+<div>
+
+    <p>
+        <p>
+            Dear [[${submitCustomer.getCustomerName()}]],
+        </p>
+
+        <p>
+            Thank you for ordering a tree! We are thrilled to provide you with a high quality tree!
+        </p>
+
+        <p>
+            <strong>Please check you order details and contact us immediately if changes are needed.</strong>
+            <br>
+            Please do not resubmit another order.
+        </p>
 
 
-<div>If there are any edits you would like to make, reach out to us as soon as possible!
-Otherwise, we will see you at the next pick up event!</div>
+        <p>
+            Your order is confirmed for: <strong>[[${submitOrder.getTreeInv()}]] [[${submitOrder.getTreeName}]]</strong>
+        </p>
+
+        <p>
+            Our team will contact you via email and phone number too coordinate a planting at the address provided during registration.
+            If you have any additional questions, feel free to <a href="contact">Contact us!</a>
+        </p>
+    </p>
+</div>
+
 
 
 
