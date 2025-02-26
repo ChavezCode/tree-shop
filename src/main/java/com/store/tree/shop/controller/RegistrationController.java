@@ -31,7 +31,7 @@ public class RegistrationController {
 
 
     //return the registration webpage
-    @GetMapping("/showRegistrationForm")
+    @GetMapping("/registrationForm")
     public String showRegistration(Model model) {
         RegistrationWrapper registrationInfo = new RegistrationWrapper();
         registrationInfo.setCustomer(new Customer());
@@ -41,7 +41,7 @@ public class RegistrationController {
     }
 //
 //    //add the submission to customer and order info tables
-    @PostMapping("/showRegistrationForm")
+    @PostMapping("/orderDetails")
     public String submitRegistration(@Valid @ModelAttribute("registrationForm")RegistrationWrapper registration, BindingResult bindingResult, Model model) {
         model.addAttribute("submitOrder", registration.getOrderInfo());
         model.addAttribute("submitCustomer", registration.getCustomer());

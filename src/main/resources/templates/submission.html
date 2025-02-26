@@ -18,7 +18,7 @@
     </nav>
 </div>
 <br>
-<div th:text="'Thank you for submitting your order!' + ${recentCustomer}">  Please Confirm your order details</div>
+<div th:text="'Thank you for submitting your order!' + ${submitCustomer.getCustomerName()}">  Please Confirm your order details</div>
 <div> Order details:</div>
 <table>
 

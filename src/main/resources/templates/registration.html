@@ -19,7 +19,7 @@
 
 
 <!--&lt;!&ndash;create form to register for a tree&ndash;&gt;-->
-<form action="#" th:action="@{/showRegistrationForm}" th:object="${registrationForm}" method="post">
+<form action="#" th:action="@{/orderDetails}" th:object="${registrationForm}" method="post">
     <p><input type="hidden" th:field="*{customer.customerID}"/></p>
 
     <label>Enter your Name</label>
