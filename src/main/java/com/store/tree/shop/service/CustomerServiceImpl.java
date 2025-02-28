@@ -29,13 +29,13 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public Customer findById(int theId) {
-        Optional<Customer> customerId = customerRepository.findById(theId);
+    public Customer findByAddress(String theAddress) {
+        Optional<Customer> customerAddress = customerRepository.findByAddress(theAddress);
 
         Customer theCustomer=null;
 
-        if (customerId.isPresent()) {
-            theCustomer=customerId.get();
+        if (customerAddress.isPresent()) {
+            theCustomer=customerAddress.get();
         }
         else {
             throw new RuntimeException("Customer not found");
@@ -49,9 +49,9 @@ public class CustomerServiceImpl implements CustomerService {
         customerRepository.save(customer);
 
     }
-
-    @Override
-    public void deleteById(int id) {
-        customerRepository.deleteById(id);
-    }
+//
+//    @Override
+//    public void deleteById(int id) {
+//        customerRepository.deleteById(id);
+//    }
 }
