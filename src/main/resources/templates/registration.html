@@ -7,6 +7,7 @@
     <title>Tree List</title>
     <!--    <link rel="stylesheet" href="/bootstrap-5.3.3-dist/css/bootstrap.min.css">-->
     <link rel="stylesheet" href="/bootstrap-5.3.3-dist/css/stylesheet.css">
+
 </head>
 <body>
 <div class="header">
@@ -44,14 +45,17 @@
 
     <label>What tree would you like?</label>
     <br>
-    <select type="text" th:field="*{orderInfo.treeName}" required="true">
-        <button><selectedcontent></selectedcontent></button>
+    <select type="text" th:field="*{orderInfo.treeName}" required="true" onChange="changeImage(this)">
         <option value="">(Please Select a Tree)</option>
-        <option value="Douglas-fir"><img src="/doug-fir.jpg" /> Douglas-fir</option>
-        <option value="Katsura"><img src="/katsura.jpg"/> Katsura</option>
-        <option value="Incense-cedar"><img src="/inc-cedar.jpg"/> Incense-cedar</option>
+<!--        tree1-->
+        <option value="Douglas-fir" id="Douglas-fir">Douglas-fir</option>
+        <!--        tree2-->
+        <option value="Katsura" id="Katsura">Katsura</option>
+        <!--        tree3-->
+        <option value="Incense-cedar" id="Incense-cedar">Incense-cedar</option>
     </select>
     <br>
+    <img src="/Douglas-fir.jpg" width="60" height="60" id="species">
     <br>
 
     <label>How Many Trees would you like of this species?</label>
@@ -67,6 +71,6 @@
 
 </form>
 
-
+<script type="text/javascript" src="/js/registration.js"></script>
 </body>
 </html>

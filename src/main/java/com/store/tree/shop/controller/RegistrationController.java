@@ -84,11 +84,11 @@ public class RegistrationController {
             customerServiceImpl.save(registration.getCustomer());
             orderInfoServiceImpl.save(registration.getOrderInfo());
             System.out.println("Address does not exist");
-            System.out.println(address);
+//            System.out.println(address);
 
 //            System.out.println(customerServiceImpl.listAll(address));
-//
-            System.out.println(customerRepository.findByAddress(address));
+////
+//            System.out.println(customerRepository.findByAddress(address));
             return "submission";
 
         }
