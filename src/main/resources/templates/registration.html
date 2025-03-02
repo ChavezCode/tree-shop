@@ -28,7 +28,7 @@
     <p th:if="${#fields.hasErrors('customer.customerName')}" th:errors="*{customer.customerName}">Name Error</p>
 
     <label>Property Address</label>
-    <p><input type="text" th:field="*{customer.address}" placeholder="123 N Oregon Ave" required="true"></p>
+    <p><input type="text" th:field="*{customer.address}" placeholder="123 N Oregon Ave" required="true" onChange="checkAddress(this)"></p>
     <p th:if="${#fields.hasErrors('customer.address')}" th:errors="*{customer.address}">Address Error</p>
 
     <label>Phone Number</label>
