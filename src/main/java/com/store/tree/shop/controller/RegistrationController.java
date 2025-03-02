@@ -72,8 +72,6 @@ public class RegistrationController {
         String address = registration.getCustomer().getAddress();
         if (customerRepository.findByAddress(address).isPresent()) {
             orderInfo.setCustomer(customer);
-//            customerServiceImpl.save(registration.getCustomer());
-//            orderInfoServiceImpl.save(registration.getOrderInfo());
             System.out.println("Address exists");
             return "duplicate";
 

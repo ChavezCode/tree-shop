@@ -1,3 +1,4 @@
 function changeImage(element) {
-    document.querySelector("#species").src = "/" + element.id+ ".jpg"
+    var treeSelected = element.value;
+    document.querySelector("#species").src = "/" + treeSelected + ".jpg"
 }
