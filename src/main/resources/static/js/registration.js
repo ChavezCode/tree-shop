@@ -48,9 +48,7 @@ function checkAddress(address) {
             console.log(data);
 
 
-
         })
 }
-
 
 

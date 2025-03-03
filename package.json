@@ -1,0 +1,17 @@
+{
+  "name": "tree-shop",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ChavezCode/tree-shop.git"
+  },
+  "private": true,
+  "dependencies": {
+    "@turf/turf": "^7.2.0"
+  }
+}
