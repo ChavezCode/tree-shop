@@ -29,7 +29,7 @@
 
     <label>Property Address</label>
     <p><input type="text" th:field="*{customer.address}" placeholder="123 N Oregon Ave" required="true" onChange="checkAddress(this)"></p>
-    <p id="addressValid"></p>
+    <p type="text" id="addressValid"></p>
     <p th:if="${#fields.hasErrors('customer.address')}" th:errors="*{customer.address}">Address Error</p>
 
     <label>Phone Number</label>

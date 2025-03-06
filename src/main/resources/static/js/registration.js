@@ -86,10 +86,12 @@ function checkAddress(input) {
             }
             console.log(inside);
             if (inside === true) {
-                document.querySelector("addressValid").src = "address is valid";
+
+                document.getElementById("addressValid").innerHTML= "address is valid";
             }
             else {
-                document.querySelector("addressValid").src = "address is not valid. please enter a valid address";
+                document.getElementById("addressValid").innerHTML = "address is not valid. please enter a valid address";
+                document.querySelector("button").disabled = true;
             }
             return inside;
 
