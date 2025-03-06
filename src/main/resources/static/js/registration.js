@@ -88,6 +88,7 @@ function checkAddress(input) {
             if (inside === true) {
 
                 document.getElementById("addressValid").innerHTML= "address is valid";
+                document.querySelector("button").disabled = false;
             }
             else {
                 document.getElementById("addressValid").innerHTML = "address is not valid. please enter a valid address";
