@@ -6,7 +6,7 @@ function changeImage(element) {
 }
 
 // city limit gson https://data.cityofsalem.net/datasets/e20578821f8c4fb88c692dd032f994be_1/explore?location=44.861873%2C-122.968235%2C11.16
-const geoJsonData = {
+const geoJsonSalem = {
     "type": "FeatureCollection",
     "name": "CityLimits",
     "crs": {"type": "name", "properties": {"name": "urn:ogc:def:crs:OGC:1.3:CRS84"}},
@@ -32,20 +32,71 @@ const geoJsonData = {
     ]
 }
 
+let polygon = geoJsonSalem.features[0].geometry.coordinates[0];
+// console.log(polygon);
+
 
 // checking address
-function checkAddress(address) {
-    let address1 = address.value;
-    const geoLocation = `https://nominatim.openstreetmap.org/search?addressdetails=1&q=${address1}&format=jsonv2&limit=1`;
+function checkAddress(input) {
+    let address = input.value;
+    const geoLocation = `https://nominatim.openstreetmap.org/search?addressdetails=1&q=${address}&format=jsonv2&limit=1`;
     fetch(geoLocation)
         .then(response => {
-            if (!response) {
-                throw new Error('Error not connecting')
+            if (!response.ok) {
+                throw new Error('Error unable to fetch geolocation data')
             }
             return response.json();
         })
         .then(data => {
+            if (data.length === 0){
+                console.log("Address not found");
+                return;
+            }
             console.log(data);
+            let n = polygon.length;
+            let p = polygon[n - 1];
+            let x = data[0].lon;
+            let y = data[0].lat;
+            // let point = parseFloat([data[0].lat, data[0].lon]);
+
+
+
+
+            console.log(x);
+
+            let x0 = p[0];
+            let y0 = p[1];
+            let x1;
+            let y1;
+            let inside = false;
+
+            console.log(inside);
+            for (let i = 0; i < n; ++i) {
+                p = polygon[i];
+
+                x1 = p[0];
+                y1 = p[1];
+
+                if (((y1 > y) !== (y0 > y)) && (x < (x0 - x1) * (y - y1) / (y0 - y1) + x1)) {
+                    inside = !inside;
+                    // console.log(inside);
+                }
+                x0 = x1
+                y0 = y1;
+            }
+            console.log(inside);
+            if (inside === true) {
+                document.querySelector("addressValid").src = "address is valid";
+            }
+            else {
+                document.querySelector("addressValid").src = "address is not valid. please enter a valid address";
+            }
+            return inside;
+
+
+
+            // console.log(point[0]);
+
 
 
         })

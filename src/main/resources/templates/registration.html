@@ -29,6 +29,7 @@
 
     <label>Property Address</label>
     <p><input type="text" th:field="*{customer.address}" placeholder="123 N Oregon Ave" required="true" onChange="checkAddress(this)"></p>
+    <p id="addressValid"></p>
     <p th:if="${#fields.hasErrors('customer.address')}" th:errors="*{customer.address}">Address Error</p>
 
     <label>Phone Number</label>
@@ -72,11 +73,6 @@
 
 <script type="text/javascript" src="/js/registration.js"></script>
 
-<script type="text/javascript" src="/js/containsAddress.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@turf/turf@7/turf.min.js">
-    import * as turf from '@turf/turf';
 
-    const point = turf.point([5, 10]);
-</script>
 </body>
 </html>
