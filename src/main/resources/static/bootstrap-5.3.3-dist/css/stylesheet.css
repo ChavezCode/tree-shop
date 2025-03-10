@@ -1,8 +1,21 @@
+.home,
+.registration {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.content {
+    max-width: 42rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 .header {
     display: flex;
-    background: #0a58ca;
     justify-content: space-between;
-    padding: 10px;
+    padding: 12px;
+    margin-bottom: 20%;
 }
 
 nav {
@@ -10,7 +23,30 @@ nav {
     align-items: center;
     gap: 8px;
 }
-a:hover {
-    color: #0dcaf0;
+a:visited,
+a:hover,
+a:active,
+a:link {
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+}
+
+.homeInfo {
+    text-align: center;
+}
+.links {
+    display: flex;
+    justify-content: center;
+}
+button {
+    margin-top: 28px;
+    padding: .5rem;
+    background: #006600;
+    border-radius: 1rem;
+    border-style: groove;
+    border: #009900;
+
+
 }
 

@@ -5,72 +5,77 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Tree List</title>
-    <!--    <link rel="stylesheet" href="/bootstrap-5.3.3-dist/css/bootstrap.min.css">-->
+    <link rel="stylesheet" href="/bootstrap-5.3.3-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="/bootstrap-5.3.3-dist/css/stylesheet.css">
 
 </head>
 <body>
-<div class="header">
-    <h1>Register For a Tree!</h1>
-    <nav>
-        <a href="/">Return Home</a>
-        <a href="contact">Contact</a>
-    </nav>
+<div class="registration">
+    <div class="content">
+        <div class="header">
+            <h1>Register For a Tree!</h1>
+            <nav>
+                <a href="/">Return Home</a>
+                <a href="contact">Contact</a>
+            </nav>
+        </div>
+
+
+    <!--&lt;!&ndash;create form to register for a tree&ndash;&gt;-->
+    <form action="#" th:action="@{/orderDetails}" th:object="${registrationForm}" method="post">
+        <p><input type="hidden" th:field="*{customer.customerID}"/></p>
+
+        <label>Enter your Name</label>
+        <p><input type="text" th:field="*{customer.customerName}" placeholder="Name" required="true"></p>
+        <p th:if="${#fields.hasErrors('customer.customerName')}" th:errors="*{customer.customerName}">Name Error</p>
+
+        <label>Property Address</label>
+        <p><input type="text" th:field="*{customer.address}" placeholder="123 N Oregon Ave" required="true" onChange="checkAddress(this)"></p>
+        <p type="text" id="addressValid"></p>
+        <p th:if="${#fields.hasErrors('customer.address')}" th:errors="*{customer.address}">Address Error</p>
+
+        <label>Phone Number</label>
+        <p><input type="text" th:field="*{customer.phoneNumber}" placeholder="5031234567" required="true"></p>
+        <p th:if="${#fields.hasErrors('customer.phoneNumber')}" th:errors="*{customer.phoneNumber}">Phone Number Error</p>
+
+
+        <label>Enter your email</label>
+        <p><input type="email" th:field="*{customer.email}" placeholder="username@domain.com" required="true"></p>
+        <p th:if="${#fields.hasErrors('customer.email')}" th:errors="*{customer.email}">Email Error</p>
+
+
+        <p><input type="hidden" th:field="*{orderInfo.orderId}"/></p>
+
+        <label>What tree would you like?</label>
+        <br>
+        <div class="treeSelection">
+        <select type="text" th:field="*{orderInfo.treeName}" required="true" onChange="changeImage(this)">
+            <option value="">(Please Select a Tree)</option>
+    <!--        tree1-->
+            <option value="Douglas-fir" id="Douglas-fir">Douglas-fir</option>
+            <!--        tree2-->
+            <option value="Katsura" id="Katsura">Katsura</option>
+            <!--        tree3-->
+            <option value="Incense-cedar" id="Incense-cedar">Incense-cedar</option>
+        </select>
+
+        <img src="/Douglas-fir.jpg" width="200" height="200" id="species">
+        </div>
+        <br>
+
+        <label>How Many Trees would you like of this species?</label>
+
+        <select type="text" th:field="*{orderInfo.treeInv}" required="true">
+            <option value="1">1</option>
+            <option value="2">2</option>
+        </select>
+
+
+        <button type="submit"> Submit</button>
+
+    </form>
+    </div>
 </div>
-
-
-<!--&lt;!&ndash;create form to register for a tree&ndash;&gt;-->
-<form action="#" th:action="@{/orderDetails}" th:object="${registrationForm}" method="post">
-    <p><input type="hidden" th:field="*{customer.customerID}"/></p>
-
-    <label>Enter your Name</label>
-    <p><input type="text" th:field="*{customer.customerName}" placeholder="Name" required="true"></p>
-    <p th:if="${#fields.hasErrors('customer.customerName')}" th:errors="*{customer.customerName}">Name Error</p>
-
-    <label>Property Address</label>
-    <p><input type="text" th:field="*{customer.address}" placeholder="123 N Oregon Ave" required="true" onChange="checkAddress(this)"></p>
-    <p type="text" id="addressValid"></p>
-    <p th:if="${#fields.hasErrors('customer.address')}" th:errors="*{customer.address}">Address Error</p>
-
-    <label>Phone Number</label>
-    <p><input type="text" th:field="*{customer.phoneNumber}" placeholder="5031234567" required="true"></p>
-    <p th:if="${#fields.hasErrors('customer.phoneNumber')}" th:errors="*{customer.phoneNumber}">Phone Number Error</p>
-
-
-    <label>Enter your email</label>
-    <p><input type="email" th:field="*{customer.email}" placeholder="username@domain.com" required="true"></p>
-    <p th:if="${#fields.hasErrors('customer.email')}" th:errors="*{customer.email}">Email Error</p>
-
-
-    <p><input type="hidden" th:field="*{orderInfo.orderId}"/></p>
-
-    <label>What tree would you like?</label>
-    <br>
-    <select type="text" th:field="*{orderInfo.treeName}" required="true" onChange="changeImage(this)">
-        <option value="">(Please Select a Tree)</option>
-<!--        tree1-->
-        <option value="Douglas-fir" id="Douglas-fir">Douglas-fir</option>
-        <!--        tree2-->
-        <option value="Katsura" id="Katsura">Katsura</option>
-        <!--        tree3-->
-        <option value="Incense-cedar" id="Incense-cedar">Incense-cedar</option>
-    </select>
-    <br>
-    <img src="/Douglas-fir.jpg" width="200" height="200" id="species">
-    <br>
-
-    <label>How Many Trees would you like of this species?</label>
-
-    <select type="text" th:field="*{orderInfo.treeInv}" required="true">
-        <option value="1">1</option>
-        <option value="2">2</option>
-    </select>
-
-
-    <button type="submit"> Submit</button>
-
-</form>
-
 <script type="text/javascript" src="/js/registration.js"></script>
 
 

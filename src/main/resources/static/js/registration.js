@@ -39,70 +39,66 @@ let polygon = geoJsonSalem.features[0].geometry.coordinates[0];
 // checking address
 function checkAddress(input) {
     let address = input.value;
-    const geoLocation = `https://nominatim.openstreetmap.org/search?addressdetails=1&q=${address}&format=jsonv2&limit=1`;
-    fetch(geoLocation)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Error unable to fetch geolocation data')
-            }
-            return response.json();
-        })
-        .then(data => {
-            if (data.length === 0){
-                console.log("Address not found");
-                return;
-            }
-            console.log(data);
-            let n = polygon.length;
-            let p = polygon[n - 1];
-            let x = data[0].lon;
-            let y = data[0].lat;
-            // let point = parseFloat([data[0].lat, data[0].lon]);
 
-
-
-
-            console.log(x);
-
-            let x0 = p[0];
-            let y0 = p[1];
-            let x1;
-            let y1;
-            let inside = false;
-
-            console.log(inside);
-            for (let i = 0; i < n; ++i) {
-                p = polygon[i];
-
-                x1 = p[0];
-                y1 = p[1];
-
-                if (((y1 > y) !== (y0 > y)) && (x < (x0 - x1) * (y - y1) / (y0 - y1) + x1)) {
-                    inside = !inside;
-                    // console.log(inside);
+        const geoLocation = `https://nominatim.openstreetmap.org/search?addressdetails=1&q=${address}&format=jsonv2&limit=1`;
+        fetch(geoLocation)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Error unable to fetch geolocation data')
                 }
-                x0 = x1
-                y0 = y1;
-            }
-            console.log(inside);
-            if (inside === true) {
-
-                document.getElementById("addressValid").innerHTML= "address is valid";
-                document.querySelector("button").disabled = false;
-            }
-            else {
-                document.getElementById("addressValid").innerHTML = "address is not valid. please enter a valid address";
-                document.querySelector("button").disabled = true;
-            }
-            return inside;
-
+                return response.json();
+            })
+            .then(data => {
+                if (data.length === 0) {
+                    console.log("Address not found");
+                    return;
+                }
+                console.log(data);
+                let n = polygon.length;
+                let p = polygon[n - 1];
+                let x = data[0].lon;
+                let y = data[0].lat;
+                // let point = parseFloat([data[0].lat, data[0].lon]);
 
 
-            // console.log(point[0]);
+                console.log(x);
+
+                let x0 = p[0];
+                let y0 = p[1];
+                let x1;
+                let y1;
+                let inside = false;
+
+                console.log(inside);
+                for (let i = 0; i < n; ++i) {
+                    p = polygon[i];
+
+                    x1 = p[0];
+                    y1 = p[1];
+
+                    if (((y1 > y) !== (y0 > y)) && (x < (x0 - x1) * (y - y1) / (y0 - y1) + x1)) {
+                        inside = !inside;
+                        // console.log(inside);
+                    }
+                    x0 = x1
+                    y0 = y1;
+                }
+                console.log(inside);
+                if (inside === true) {
+
+                    document.getElementById("addressValid").innerHTML = "address is valid";
+                    document.querySelector("button").disabled = false;
+                } else {
+                    document.getElementById("addressValid").innerHTML = "address is not valid. please enter a valid address";
+                    document.querySelector("button").disabled = true;
+                }
+                return inside;
 
 
+                // console.log(point[0]);
 
-        })
+
+            })
 }
 
 
