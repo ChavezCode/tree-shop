@@ -13,15 +13,15 @@
 <div class="registration">
     <div class="content">
         <div class="header">
-            <h1>Register For a Tree!</h1>
+            <h1>Registration Form</h1>
             <nav>
                 <a href="/">Return Home</a>
                 <a href="contact">Contact</a>
             </nav>
         </div>
+    <div>
 
 
-    <!--&lt;!&ndash;create form to register for a tree&ndash;&gt;-->
     <form action="#" th:action="@{/orderDetails}" th:object="${registrationForm}" method="post">
         <p><input type="hidden" th:field="*{customer.customerID}"/></p>
 
@@ -31,7 +31,7 @@
 
         <label>Property Address</label>
         <p><input type="text" th:field="*{customer.address}" placeholder="123 N Oregon Ave" required="true" onChange="checkAddress(this)"></p>
-        <p type="text" id="addressValid"></p>
+        <p class="text-danger" type="text" id="addressValid"></p>
         <p th:if="${#fields.hasErrors('customer.address')}" th:errors="*{customer.address}">Address Error</p>
 
         <label>Phone Number</label>
@@ -40,7 +40,7 @@
 
 
         <label>Enter your email</label>
-        <p><input type="email" th:field="*{customer.email}" placeholder="username@domain.com" required="true"></p>
+        <p><input type="email" th:field="*{customer.email}" placeholder="you@example.com" required="true"></p>
         <p th:if="${#fields.hasErrors('customer.email')}" th:errors="*{customer.email}">Email Error</p>
 
 
@@ -49,17 +49,17 @@
         <label>What tree would you like?</label>
         <br>
         <div class="treeSelection">
-        <select type="text" th:field="*{orderInfo.treeName}" required="true" onChange="changeImage(this)">
-            <option value="">(Please Select a Tree)</option>
-    <!--        tree1-->
-            <option value="Douglas-fir" id="Douglas-fir">Douglas-fir</option>
-            <!--        tree2-->
-            <option value="Katsura" id="Katsura">Katsura</option>
-            <!--        tree3-->
-            <option value="Incense-cedar" id="Incense-cedar">Incense-cedar</option>
-        </select>
+            <select type="text" th:field="*{orderInfo.treeName}" required="true" onChange="changeImage(this)">
+                <option value="">(Please Select a Tree)</option>
+        <!--        tree1-->
+                <option value="Douglas-fir" id="Douglas-fir">Douglas-fir</option>
+                <!--        tree2-->
+                <option value="Katsura" id="Katsura">Katsura</option>
+                <!--        tree3-->
+                <option value="Incense-cedar" id="Incense-cedar">Incense-cedar</option>
+            </select>
 
-        <img src="/Douglas-fir.jpg" width="200" height="200" id="species">
+            <img src="/default.jpg" id="species">
         </div>
         <br>
 
@@ -74,6 +74,7 @@
         <button type="submit"> Submit</button>
 
     </form>
+    </div>
     </div>
 </div>
 <script type="text/javascript" src="/js/registration.js"></script>

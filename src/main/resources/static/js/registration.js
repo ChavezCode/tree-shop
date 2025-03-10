@@ -2,7 +2,12 @@
 
 function changeImage(element) {
     var treeSelected = element.value;
-    document.querySelector("#species").src = "/" + treeSelected + ".jpg"
+    if (treeSelected !== "") {
+        document.querySelector("#species").src = "/" + treeSelected + ".jpg"
+    } else {
+        document.querySelector("#species").src = "/default.jpg"
+    }
+
 }
 
 // city limit gson https://data.cityofsalem.net/datasets/e20578821f8c4fb88c692dd032f994be_1/explore?location=44.861873%2C-122.968235%2C11.16
@@ -86,10 +91,10 @@ function checkAddress(input) {
                 console.log(inside);
                 if (inside === true) {
 
-                    document.getElementById("addressValid").innerHTML = "address is valid";
+                    document.getElementById("addressValid").innerHTML = "";
                     document.querySelector("button").disabled = false;
                 } else {
-                    document.getElementById("addressValid").innerHTML = "address is not valid. please enter a valid address";
+                    document.getElementById("addressValid").innerHTML = "The address is outside of city limits";
                     document.querySelector("button").disabled = true;
                 }
                 return inside;
