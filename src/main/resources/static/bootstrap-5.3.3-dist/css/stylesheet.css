@@ -40,6 +40,8 @@ a:link {
 .links {
     display: flex;
     justify-content: center;
+    gap: .25rem;
+
 }
 button {
     margin-top: 28px;
