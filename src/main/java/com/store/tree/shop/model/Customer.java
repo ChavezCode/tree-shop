@@ -10,24 +10,27 @@ import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 
+
 @Entity
 @Table(name = "customer")
 public class Customer implements Serializable {
 
 // getters and setters
     //    creating a table for customer information
+//    @Id
+//    @Column(name = "customerId")
+//    @GeneratedValue(strategy = GenerationType.AUTO)
+//    private int customerID;
     @Id
-    @Column(name = "customerId")
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int customerID;
+    @Column(name = "customerAddress")
+    @NotNull
+    private String address;
+
 
     @Column(name = "customerName")
     @NotNull
     private String customerName;
 
-    @Column(name = "customerAddress")
-    @NotNull
-    private String address;
 
     @Column(name = "phoneNumber")
     @NotNull
@@ -55,13 +58,13 @@ public class Customer implements Serializable {
         this.orderInfo = orderInfo;
     }
 
-    public int getCustomerID() {
-        return customerID;
-    }
-
-    public void setCustomerID(int customerID) {
-        this.customerID = customerID;
-    }
+//    public int getCustomerID() {
+//        return customerID;
+//    }
+//
+//    public void setCustomerID(int customerID) {
+//        this.customerID = customerID;
+//    }
 
 
 
@@ -106,11 +109,11 @@ public class Customer implements Serializable {
         this.phoneNumber = phoneNumber;
         this.address = address;
         this.customerName = customerName;
-        this.customerID = customerID;
+//        this.customerID = customerID;
     }
 
-    public Customer(int customerID, String customerName, String address, String phoneNumber, String email) {
-        this.customerID = customerID;
+    public Customer( String customerName, String address, String phoneNumber, String email) {
+//        this.customerID = customerID;
         this.customerName = customerName;
         this.address = address;
         this.phoneNumber = phoneNumber;

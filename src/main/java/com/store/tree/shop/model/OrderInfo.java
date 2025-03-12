@@ -27,7 +27,7 @@ public class OrderInfo implements Serializable {
 
     // mapping relationship between customer and order info(orderinfo owner of relationship)
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "customerId")
+    @JoinColumn(name = "customerAddress")
     private Customer customer;
 
 

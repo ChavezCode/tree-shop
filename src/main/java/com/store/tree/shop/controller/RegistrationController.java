@@ -53,18 +53,6 @@ public class RegistrationController {
         Customer customer = registration.getCustomer();
         OrderInfo orderInfo = registration.getOrderInfo();
 
-        //add address verification later on here
-
-
-
-
-
-
-
-
-
-
-
         if (bindingResult.hasErrors()) {
             return "registration";
         }

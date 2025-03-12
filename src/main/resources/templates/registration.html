@@ -23,7 +23,6 @@
 
 
     <form action="#" th:action="@{/orderDetails}" th:object="${registrationForm}" method="post">
-        <p><input type="hidden" th:field="*{customer.customerID}"/></p>
 
         <label>Enter your Name</label>
         <p><input type="text" th:field="*{customer.customerName}" placeholder="Name" required="true"></p>
