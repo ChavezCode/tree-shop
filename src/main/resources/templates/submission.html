@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Order Submitted</title>
-    <!--    <link rel="stylesheet" href="/bootstrap-5.3.3-dist/css/bootstrap.min.css">-->
+    <link rel="stylesheet" href="/bootstrap-5.3.3-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="/bootstrap-5.3.3-dist/css/stylesheet.css">
 </head>
 <body>
@@ -20,48 +20,36 @@
         <a href="about">Learn more</a>
     </nav>
 </div>
+    <h3> Tree Shop Registration Confirmation</h3>
 <br>
-<div th:text="'Thank you for submitting your order!' + ${submitCustomer.getCustomerName()}">  Please Confirm your order details below.</div>
-<div> Tree Shop Registration Confirmation</div>
 
-<!--display name-->
-<!--email-->
-<!--phone-->
+<div><strong>Please Confirm your order details below.</strong></div>
 
-<p th:text="${submitCustomer.getCustomerName()}"></p>
-<p th:text="${submitCustomer.getEmail()}"></p>
-<p th:text="${submitCustomer.getPhoneNumber()}"></p>
+<br>
 
-<strong>Planting Address:</strong> <span th:text="${submitCustomer.getAddress()}"></span>
+<p th:text="'Name: ' + ${submitCustomer.getCustomerName()}"></p>
+<p th:text="'Email: ' + ${submitCustomer.getEmail()}"></p>
+<p th:text="'Phone Number: ' + ${submitCustomer.getPhoneNumber()}"></p>
 
-<div>
-
-    <p>
-        <p>
-        Dear <strong>[[${submitCustomer.getCustomerName()}]]</strong>,
-        </p>
-
+<p th:text="'Planting Address: ' + ${submitCustomer.getAddress()}"></p>
+<br>
+    <p th:text="'Dear' + ' ' + ${submitCustomer.getCustomerName()} + ','"></p>
+    <p th:text="'Thank you for submitting your order, ' + ${submitCustomer.getCustomerName()} + '!' + ' We are thrilled to provide you with a high quality tree!'"></p>
         <p>
             Thank you for ordering a tree! We are thrilled to provide you with a high quality tree!
         </p>
-
         <p>
             <strong>Please check you order details and contact us immediately if changes are needed.</strong>
             <br>
             Please do not resubmit another order.
         </p>
-
-
-        <p>
-            Your order is confirmed for: <strong>[[${submitOrder.getTreeInv()}]] [[${submitOrder.getTreeName}]]</strong>
-        </p>
+        <p th:text="'Your order is confirmed for: ' + ${submitOrder.getTreeInv()} + ' ' + ${submitOrder.getTreeName()}"></p>
 
         <p>
-            Our team will contact you via email and phone number too coordinate a planting at the address provided during registration.
+            Our team will contact you via email and phone number to coordinate a planting at the address provided during registration.
             If you have any additional questions, feel free to <a href="contact">Contact us!</a>
         </p>
-    </p>
-</div>
+
 
 
 
