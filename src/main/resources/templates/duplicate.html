@@ -5,28 +5,30 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>About</title>
-    <!--    <link rel="stylesheet" href="/bootstrap-5.3.3-dist/css/bootstrap.min.css">-->
+    <link rel="stylesheet" href="/bootstrap-5.3.3-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="/bootstrap-5.3.3-dist/css/stylesheet.css">
 </head>
 <body>
 <div class="content">
 
 
-<div class="header">
-    <h1>Oops!</h1>
-    <nav>
-        <a href="/">Return Home</a>
-        <a href="contact">Contact</a>
-    </nav>
-</div>
-
-<h1>It looks like you might have registered twice! Your order went through the first time, our system found an address that matched yours in our database.
-    <br>
-    If you would like to make updates to your order, please <a href="contact">contact us</a> and we will gladly help you with that! </h1>
-    <div class="links">
-        <button ><a href="/contact">Contact Us</a></button>
-        <button ><a href="/">Return Home</a></button>
+    <div class="header">
+        <h1>Oops!</h1>
+        <nav>
+            <a href="/">Return Home</a>
+            <a href="contact">Contact</a>
+        </nav>
     </div>
+
+    <p>Sorry, [[${submitCustomer.getCustomerName()}]]!
+        <br>
+        It looks like you might have registered twice! Your order went through the first time, our system found an address that matched yours in our database.
+        <br>
+        If you would like to make updates to your order, please <a href="contact">contact us</a> and we will gladly help you with that! </p>
+        <div class="links">
+            <button ><a href="/contact">Contact Us</a></button>
+            <button ><a href="/">Return Home</a></button>
+        </div>
 
 </div>
 </body>
