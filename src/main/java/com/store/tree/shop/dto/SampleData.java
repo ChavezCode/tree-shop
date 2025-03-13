@@ -30,9 +30,9 @@ public class SampleData implements CommandLineRunner {
 
             //create a customer
             Customer customer = new Customer();
-            customer.setCustomerName("Jorge");
+            customer.setCustomerName("Person");
             customer.setAddress("123 Main St");
-            customer.setEmail("jorge@gmail.com");
+            customer.setEmail("person@gmail.com");
             customer.setPhoneNumber("+49 55 55 55");
             customerRepository.save(customer);
 

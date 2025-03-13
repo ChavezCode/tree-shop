@@ -94,7 +94,7 @@ function checkAddress(input) {
                     document.getElementById("addressValid").innerHTML = "";
                     document.querySelector("button").disabled = false;
                 } else {
-                    document.getElementById("addressValid").innerHTML = "The address is outside of city limits";
+                    document.getElementById("addressValid").innerHTML = "This is not an address that exists within the city limits of Salem.";
                     document.querySelector("button").disabled = true;
                 }
                 return inside;
