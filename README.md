@@ -13,8 +13,7 @@ The Home page has information about the website and a button that allows the use
 
 The Registration page allows the user to register for trees, and takes them to an order summary page showing order details:
 [Registration Page](https://github.com/ChavezCode/tree-shop/blob/master/src/main/resources/static/demos/Registration-confirmed.mp4)
-
-             
+<video src="https://github.com/ChavezCode/tree-shop/blob/master/src/main/resources/static/demos/Registration-confirmed.mp4">   
 The Registration page also prevents users from registering if they do not live within city limits, 
 and displays an error page if their address exists to prevent duplicate registrations.
 
