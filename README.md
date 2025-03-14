@@ -11,7 +11,8 @@ This application has four different pages, home, registration, about page, conta
 
 The Home page has information about the website and a button that allows the user to go to the Registration page:
 
-The Registration page allows the user to register for trees, and takes them to an order summary page showing order details.
+The Registration page allows the user to register for trees, and takes them to an order summary page showing order details:
+[](src/main/resources/static/demos/Registration-confirmed.mp4)
 
 
 The Registration page also prevents users from registering if they do not live within city limits, 
