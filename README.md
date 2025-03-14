@@ -17,8 +17,7 @@ The Registration page allows the user to register for trees, and takes them to a
 
 The Registration page also prevents users from registering if they do not live within city limits, 
 and displays an error page if their address exists to prevent duplicate registrations:
-<video controls src="https://github.com/ChavezCode/tree-shop/blob/master/src/main/resources/static/demos/Registration-duplicate.mp4" title="registration duplicate"></video>
-
+<video controls src="https://github.com/user-attachments/assets/0f989d64-fbe6-4ff3-a0bc-25b66e680cb9" title="registration duplicate"></video>
 
 
 
