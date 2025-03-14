@@ -13,9 +13,12 @@ The Home page has information about the website and a button that allows the use
 
 The Registration page allows the user to register for trees, and takes them to an order summary page showing order details:
 
-<video controls src="https://github.com/user-attachments/assets/6a2572f5-c91d-4fd0-9cdd-4b692cd06d9f" title="registration"></video>
+<video controls src="https://github.com/user-attachments/assets/6a2572f5-c91d-4fd0-9cdd-4b692cd06d9f" title="registration confirmation"></video>
+
 The Registration page also prevents users from registering if they do not live within city limits, 
-and displays an error page if their address exists to prevent duplicate registrations.
+and displays an error page if their address exists to prevent duplicate registrations:
+<video controls src="https://github.com/user-attachments/assets/6a2572f5-c91d-4fd0-9cdd-4b692cd06d9f" title="registration duplicate"></video>
+
 
 
 
