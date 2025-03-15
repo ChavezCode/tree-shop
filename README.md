@@ -28,4 +28,6 @@ and displays an error page if their address exists to prevent duplicate registra
 3. Once the repo has been cloned, run the application.
 4. Navigate to `http://localhost:8080/` on your preferred web browser. 
 
-### Alternatively, you can run the application at: [Tree Shop Website](http://35.89.189.255/)
+### Alternatively, you can open the application at: [Tree Shop Website](http://35.89.189.255/)
+
+This website was deployed by creating a docker image and deploying it using an AWS EC2 instance.
